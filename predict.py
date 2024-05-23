@@ -26,7 +26,8 @@ from diffusers import (
     StableDiffusionXLControlNetImg2ImgPipeline,
     ControlNetModel
 )
-from diffusers.models.attention_processor import LoRAAttnProcessor2_0
+# from diffusers.models.attention_processor import LoRAAttnProcessor2_0
+from diffusers.models.attention_processor import AttnProcessor2_0
 from diffusers.pipelines.stable_diffusion.safety_checker import (
     StableDiffusionSafetyChecker,
 )
@@ -139,7 +140,7 @@ class Predictor(BasePredictor):
                     block_id = int(name[len("down_blocks.")])
                     hidden_size = unet.config.block_out_channels[block_id]
                 with no_init_or_tensor():
-                    module = LoRAAttnProcessor2_0(
+                    module = AttnProcessor2_0(
                         hidden_size=hidden_size,
                         cross_attention_dim=cross_attention_dim,
                         rank=name_rank_map[name],

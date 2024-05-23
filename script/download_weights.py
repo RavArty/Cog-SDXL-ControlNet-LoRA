@@ -5,7 +5,7 @@ from diffusers.pipelines.stable_diffusion.safety_checker import (
 )
 
 
-CONTROL_CACHE = "control-cache"
+CONTROL_CACHE = "./control-cache"
 SDXL_MODEL_CACHE = "./sdxl-cache"
 REFINER_MODEL_CACHE = "./refiner-cache"
 SAFETY_CACHE = "./safety-cache"
